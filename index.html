@@ -712,6 +712,52 @@ button,a{-webkit-tap-highlight-color:transparent;touch-action:manipulation}
 .hero-section h1 .beat:nth-child(1) span{transition-delay:.4s}.hero-section h1 .beat:nth-child(3) span{transition-delay:1.1s}
 @keyframes nk-glow{50%{text-shadow:0 0 22px rgba(240,225,190,.8)}}
 @media (prefers-reduced-motion:reduce){.nk-ch,.nk-w{opacity:1;transform:none;filter:none;transition:none}.nk-text{animation:none}.hero-section h1 .beat span{clip-path:none;transition:none}}
+
+/* ===== countdown switch + scratch section upgrade ===== */
+.countdown-grid.switch{animation:cd-switch .8s var(--e)}
+@keyframes cd-switch{0%{opacity:.2;transform:scale(.94)}100%{opacity:1;transform:none}}
+.marked-calendar-panel .calendar-count{margin:8px 0 14px!important;font:600 11px var(--font-sans)!important;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-ink)!important}
+.scratch-aura{position:absolute;inset:-20%;z-index:-1;border-radius:50%;pointer-events:none;background:radial-gradient(circle,rgba(218,195,145,.42),rgba(240,170,170,.14) 45%,transparent 66%);animation:aura 4s ease-in-out infinite}
+@keyframes aura{50%{transform:scale(1.1);opacity:.7}}
+.scratch-stars i{position:absolute;width:11px;height:11px;background:var(--gold-bright);clip-path:polygon(50% 0,62% 38%,100% 50%,62% 62%,50% 100%,38% 62%,0 50%,38% 38%);animation:twinkle 2.6s ease-in-out infinite;pointer-events:none;filter:drop-shadow(0 0 4px var(--gold-bright))}
+.scratch-stars i:nth-child(1){left:4%;top:20%}.scratch-stars i:nth-child(2){left:90%;top:16%;animation-delay:.5s}.scratch-stars i:nth-child(3){left:97%;top:54%;animation-delay:1s;width:8px;height:8px}.scratch-stars i:nth-child(4){left:-2%;top:56%;animation-delay:1.4s;width:8px;height:8px}.scratch-stars i:nth-child(5){left:12%;top:82%;animation-delay:.8s}.scratch-stars i:nth-child(6){left:84%;top:80%;animation-delay:1.8s}.scratch-stars i:nth-child(7){left:48%;top:-4%;animation-delay:.3s;width:14px;height:14px}.scratch-stars i:nth-child(8){left:48%;top:97%;animation-delay:1.2s;width:9px;height:9px}
+@keyframes twinkle{0%,100%{transform:scale(.4) rotate(0);opacity:.2}50%{transform:scale(1.1) rotate(45deg);opacity:1}}
+.scratch-glint{position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(115deg,transparent 38%,rgba(255,255,255,.6) 50%,transparent 62%);background-size:260% 100%;background-position:120% 0;animation:foil-glint 3.6s ease-in-out infinite}
+@keyframes foil-glint{0%{background-position:120% 0}60%,100%{background-position:-60% 0}}
+.reveal-burst{position:absolute;inset:6%;border-radius:50%;border:2px solid var(--gold-bright);box-shadow:0 0 40px var(--gold-bright),inset 0 0 30px rgba(240,170,170,.5);pointer-events:none;animation:burst 1.5s var(--e) forwards}
+.reveal-burst.b2{animation-delay:.25s;border-color:#f0aaaa}
+@keyframes burst{from{transform:scale(.35);opacity:.95}to{transform:scale(1.9);opacity:0}}
+@media (prefers-reduced-motion:reduce){.scratch-glint,.scratch-stars i,.scratch-aura,.reveal-burst,.countdown-grid.switch{animation:none!important}.scratch-glint,.reveal-burst{display:none}}
+
+/* ===== cover page showpiece ===== */
+.cover-medallion{position:relative;overflow:visible}
+.cm-ring{position:absolute;inset:-7%;border-radius:50%;border:1px dashed rgba(218,195,145,.6);pointer-events:none;animation:cm-spin 30s linear infinite}
+.cm-ring::after{content:"";position:absolute;top:-4px;left:50%;width:8px;height:8px;margin-left:-4px;border-radius:50%;background:var(--gold-bright);box-shadow:0 0 12px 2px var(--gold-bright)}
+.cm-ring.r2{inset:-15%;border:1px solid rgba(218,195,145,.22);animation-duration:44s;animation-direction:reverse}
+.cm-ring.r2::after{top:auto;bottom:-3px;width:6px;height:6px;margin-left:-3px}
+.cm-pulse{position:absolute;inset:20%;border-radius:50%;border:1px solid rgba(240,225,190,.7);pointer-events:none;animation:cm-ripple 3.4s ease-out infinite}
+.cm-pulse.p2{animation-delay:1.7s}
+@keyframes cm-spin{to{rotate:360deg}}
+@keyframes cm-ripple{from{scale:1;opacity:.8}to{scale:1.9;opacity:0}}
+.cover-medallion .pattern-draw{animation:cm-spin 70s linear infinite}
+.cover-seal{animation:seal-glow 3.2s ease-in-out infinite}
+@keyframes seal-glow{50%{filter:drop-shadow(0 0 18px rgba(218,195,145,.85)) brightness(1.1)}}
+.cover-seal-mark{display:inline-block;animation:mark-beat 1.9s ease-in-out infinite}
+@keyframes mark-beat{0%,60%,100%{scale:1}12%{scale:1.3}28%{scale:1}40%{scale:1.18}}
+.cover-top{padding:.3em .15em;background:linear-gradient(100deg,var(--gold) 20%,#fff3cf 46%,var(--gold) 72%);background-size:260% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:cover-in 1.1s var(--e) both,name-shine 6s ease-in-out 1.2s infinite}
+.cover-screen .particles{z-index:1}
+.open-invitation{position:absolute}
+.open-invitation::after{content:"";position:absolute;inset:-1px;border:1px solid var(--gold-bright);border-radius:inherit;pointer-events:none;animation:btn-ring 2.6s ease-out 1.6s infinite}
+.open-invitation svg{animation:nudge 1.6s ease-in-out infinite}
+@keyframes btn-ring{from{transform:scale(1);opacity:.85}to{transform:scale(1.18,1.55);opacity:0}}
+@keyframes nudge{50%{translate:0 4px}}
+.cover-flare{position:absolute;left:50%;top:46%;width:70vmax;height:70vmax;translate:-50% -50%;scale:.1;opacity:0;border-radius:50%;pointer-events:none;z-index:3;background:radial-gradient(circle,rgba(255,244,214,.95),rgba(218,195,145,.45) 30%,transparent 62%)}
+.cover-opening .cover-flare{animation:flare 1.6s var(--e) forwards}
+@keyframes flare{0%{scale:.1;opacity:0}30%{opacity:1}100%{scale:1.3;opacity:0}}
+.cover-opening .cover-medallion{animation:seal-pop 1s var(--e) forwards}
+@keyframes seal-pop{to{scale:1.35;opacity:0}}
+.cover-opening .cm-ring,.cover-opening .open-invitation::after{animation-play-state:paused;opacity:0}
+@media (prefers-reduced-motion:reduce){.cm-ring,.cm-pulse,.cover-medallion .pattern-draw,.cover-seal,.cover-seal-mark,.open-invitation::after,.open-invitation svg,.cover-flare{animation:none!important}.cover-top{animation:none}}
 </style>
 </head>
 <body>
@@ -721,9 +767,11 @@ button,a{-webkit-tap-highlight-color:transparent;touch-action:manipulation}
 <div class="cover-screen">
   <div class="cover-leaf cover-leaf-left"></div><div class="cover-leaf cover-leaf-right"></div><div class="cover-seam" aria-hidden="true"></div>
   <div class="cover-sparkles" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+  <div class="particles" aria-hidden="true"></div>
+  <span class="cover-flare" aria-hidden="true"></span>
   <div class="cover-content">
     <p class="cover-top" lang="ar" dir="rtl">بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ</p>
-    <div class="cover-medallion"><span data-pattern></span><div class="cover-seal"><span class="cover-seal-mark" aria-hidden="true">♥</span><span class="cover-kicker">A special invitation</span><span class="cover-seal-arabic" lang="ar" dir="rtl">دعوة</span></div></div>
+    <div class="cover-medallion"><span class="cm-ring r1" aria-hidden="true"></span><span class="cm-ring r2" aria-hidden="true"></span><span class="cm-pulse" aria-hidden="true"></span><span class="cm-pulse p2" aria-hidden="true"></span><span data-pattern></span><div class="cover-seal"><span class="cover-seal-mark" aria-hidden="true">♥</span><span class="cover-kicker">A special invitation</span><span class="cover-seal-arabic" lang="ar" dir="rtl">دعوة</span></div></div>
     <p class="cover-foot">With the blessings of Allah</p>
   </div>
   <button type="button" class="btn btn-outline size-cinema open-invitation">Open invitation <i data-i="arrow-down" data-s="15"></i></button>
@@ -747,24 +795,21 @@ button,a{-webkit-tap-highlight-color:transparent;touch-action:manipulation}
   <a class="next-cue" href="#walima" aria-label="Continue to the Valima invitation"><i data-i="arrow-down" data-s="18"></i></a>
 </section>
 
-<section id="celebration" class="celebration-reveal" aria-label="Valima / Reception">
-  <div class="celebration-sticky">
-    <div class="celebration-aperture"><img data-img="ballroom" alt=""></div>
-    <div class="cover-sparkles" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
-    <div class="cel-ring" aria-hidden="true"><div data-pattern></div></div><div class="celebration-title"><span class="celebration-ornament" aria-hidden="true">✦</span><p class="cel-kicker">You are warmly invited to the</p><span class="celebration-line"></span><h2><span class="cel-a">Valima</span><span class="cel-b">/ Reception</span></h2><span class="celebration-line"></span><p class="cel-date">Saturday · 12 December 2026</p></div>
-  </div>
-</section>
 
 <section id="walima" class="paper-section scratch-section cinematic-section">
   <div class="cinematic-backdrop"><div class="camera-image"><img data-img="ballroom" alt=""></div></div>
   <div class="ghost-layer ghost-valima" aria-hidden="true"><span>VALIMA / RECEPTION</span></div>
   <div class="parallax-ring scratch-ring" aria-hidden="true"><div data-pattern></div></div>
+  <div class="particles" aria-hidden="true"></div>
   <div class="appear">
     <span class="bloom" aria-hidden="true">✦</span>
+    <p class="section-label">A little surprise</p>
     <h4><span class="sheen-title"><span class="chars-reveal">Scratch to reveal</span></span></h4>
     <p class="scratch-intro">A little heart holds the details of the day we celebrate our love.</p>
     <div class="scratch-reveal" id="scratch">
       <div class="scratch-card">
+        <span class="scratch-aura" aria-hidden="true"></span>
+        <div class="scratch-stars" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
         <div class="scratch-heart">
           <div class="scratch-details">
             <p class="scratch-kicker">You’re invited to celebrate the Valima / Reception of</p>
@@ -779,6 +824,7 @@ button,a{-webkit-tap-highlight-color:transparent;touch-action:manipulation}
           <canvas class="scratch-foil" aria-hidden="true"></canvas>
           <span class="scratch-hint" aria-hidden="true">Scratch here to uncover</span>
           <span class="scratch-guide" aria-hidden="true"></span>
+          <span class="scratch-glint" aria-hidden="true"></span>
         </div>
       </div>
       <p class="scratch-status" aria-live="polite">Scratch the heart to reveal the invitation, or use the button below.</p>
@@ -786,6 +832,14 @@ button,a{-webkit-tap-highlight-color:transparent;touch-action:manipulation}
       <button type="button" class="scratch-reveal-button">Reveal with love</button>
     </div>
     <div class="scratch-actions"><a class="btn btn-solid size-cinema" id="loc" target="_blank" rel="noreferrer"><i data-i="map-pin"></i> Open location</a></div>
+  </div>
+</section>
+
+<section id="celebration" class="celebration-reveal" aria-label="Valima / Reception">
+  <div class="celebration-sticky">
+    <div class="celebration-aperture"><img data-img="ballroom" alt=""></div>
+    <div class="cover-sparkles" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+    <div class="cel-ring" aria-hidden="true"><div data-pattern></div></div><div class="celebration-title"><span class="celebration-ornament" aria-hidden="true">✦</span><p class="cel-kicker">You are warmly invited to the</p><span class="celebration-line"></span><h2><span class="cel-a">Valima</span><span class="cel-b">/ Reception</span></h2><span class="celebration-line"></span><p class="cel-date">Saturday · 12 December 2026</p></div>
   </div>
 </section>
 
@@ -816,6 +870,7 @@ button,a{-webkit-tap-highlight-color:transparent;touch-action:manipulation}
       <div class="calendar-legend"><span><i class="nikah-dot"></i>Nikah</span><span><i data-i="heart" data-s="12"></i>Walima</span></div>
       <p class="calendar-hint">Select a marked date to see its details</p>
       <div class="calendar-event" aria-live="polite" aria-atomic="true"><p class="calendar-event-name" id="evname"></p><p id="evdate"></p></div>
+      <p class="calendar-count" id="evleft"></p>
       <div class="calendar-actions" id="calactions">
         <a class="btn btn-solid size-cinema" id="gcal" target="_blank" rel="noreferrer"><i data-i="calendar-plus"></i> Google Calendar</a>
         <button type="button" class="btn btn-outline size-cinema" id="ics">Download .ics</button>
@@ -914,19 +969,30 @@ $("#ics").onclick = () => {
 /* ---- countdown ---- */
 const grid = $("#grid");
 grid.innerHTML = ["Days", "Hours", "Minutes", "Seconds"].map(l => `<div class="countdown-unit"><span class="countdown-numeral"><strong>--</strong></span><span class="countdown-unit-label">${l}</span></div>`).join("");
-function tickCountdown() {
-  const rem = Math.max(0, walimaDate - Date.now()), s = Math.floor(rem / 1000);
+let target = walimaDate;
+function tickCountdown(force) {
+  const rem = Math.max(0, target - Date.now()), s = Math.floor(rem / 1000);
   const v = [Math.floor(s / 86400), Math.floor(s % 86400 / 3600), Math.floor(s % 3600 / 60), s % 60].map(x => String(x).padStart(2, "0"));
   $$(".countdown-numeral", grid).forEach((box, i) => {
     const cur = box.firstElementChild;
-    if (cur.textContent !== v[i]) {
+    if (cur.textContent !== v[i] || force) {
       const n = document.createElement("strong"); n.textContent = v[i]; if (!reduced) n.className = "tick";
       box.replaceChildren(n); box.setAttribute("aria-label", v[i] + " " + ["Days", "Hours", "Minutes", "Seconds"][i]);
     }
   });
   $("#today").hidden = rem !== 0;
+  const left = $("#evleft"), n = parseInt(v[0], 10), msg = rem === 0 ? "Today is the day" : n === 0 ? "Less than a day to go" : n === 1 ? "1 day to go" : n + " days to go";
+  if (left && left.textContent !== msg) left.textContent = msg;
 }
 tickCountdown(); setInterval(tickCountdown, 1000);
+const NIKAH = new Date(INV.nikah.iso);
+function splitChars(el, text) { let n = 0; el.setAttribute("aria-label", text); el.innerHTML = text.split(" ").map(w => `<span class="chars-reveal-word" aria-hidden="true">${[...w].map(c => `<span style="transition-delay:${n++ * .04}s">${c}</span>`).join("")}</span>`).join(" "); }
+document.addEventListener("evchange", e => {
+  const w = e.detail === "walima"; target = w ? walimaDate : NIKAH;
+  const h = $(".countdown-section h4 .chars-reveal"); h.classList.remove("in"); splitChars(h, w ? "Counting down to our Valima / Reception" : "Counting down to our Nikah"); void h.offsetWidth; requestAnimationFrame(() => h.classList.add("in"));
+  $(".countdown-event-date").innerHTML = w ? `${INV.walima.date}<span>Saturday · ${INV.walima.time}</span>` : `${INV.nikah.date}<span>Thursday</span>`;
+  grid.classList.remove("switch"); void grid.offsetWidth; grid.classList.add("switch"); tickCountdown(true);
+});
 
 /* ---- marked calendar (December 2026) ---- */
 (() => {
@@ -948,7 +1014,7 @@ tickCountdown(); setInterval(tickCountdown, 1000);
     $("#evdate").textContent = isW ? INV.walima.date + " · " + INV.walima.time : INV.nikah.date;
     $("#calactions").style.display = isW ? "" : "none";
   }
-  cal.addEventListener("click", e => { const b = e.target.closest("button[data-d]"); if (b) { selected = new Date(walima.getFullYear(), walima.getMonth(), +b.dataset.d); render(); } });
+  cal.addEventListener("click", e => { const b = e.target.closest("button[data-d]"); if (b) { selected = new Date(walima.getFullYear(), walima.getMonth(), +b.dataset.d); render(); document.dispatchEvent(new CustomEvent("evchange", { detail: same(selected, walima) ? "walima" : "nikah" })); } });
   render();
 })();
 
@@ -973,6 +1039,9 @@ tickCountdown(); setInterval(tickCountdown, 1000);
     const t = n => getComputedStyle(document.documentElement).getPropertyValue(n).trim(), g = c.createLinearGradient(0, 0, b.width, b.height);
     g.addColorStop(0, t("--gold")); g.addColorStop(.28, t("--ivory")); g.addColorStop(.52, t("--gold-ink")); g.addColorStop(.76, t("--gold-bright")); g.addColorStop(1, t("--gold"));
     c.fillStyle = g; c.fillRect(0, 0, b.width, b.height);
+    c.globalAlpha = .2; c.strokeStyle = t("--gold-ink"); c.lineWidth = 1; const st = 30;
+    for (let y = -st; y < b.height + st; y += st) for (let x = -st; x < b.width + st; x += st) { c.beginPath(); c.moveTo(x + st / 2, y); c.lineTo(x + st, y + st / 2); c.lineTo(x + st / 2, y + st); c.lineTo(x, y + st / 2); c.closePath(); c.stroke(); }
+    c.globalAlpha = 1; const rg = c.createRadialGradient(b.width * .3, b.height * .25, 0, b.width * .3, b.height * .25, b.width * .6); rg.addColorStop(0, "rgba(255,255,255,.5)"); rg.addColorStop(1, "rgba(255,255,255,0)"); c.fillStyle = rg; c.fillRect(0, 0, b.width, b.height);
     c.strokeStyle = t("--ivory"); c.lineWidth = 1; heart(c, b.width * .88, b.height * .85, b.width * .06, b.height * .06); c.stroke();
     c.textAlign = "center"; c.fillStyle = t("--rose-ink"); c.font = "24px Georgia, serif"; c.fillText("♥", b.width / 2, b.height * .53); c.restore();
     base = c.getImageData(0, 0, canvas.width, canvas.height).data; barFill.style.transform = "scaleX(0)";
@@ -994,13 +1063,13 @@ tickCountdown(); setInterval(tickCountdown, 1000);
     barFill.style.transform = `scaleX(${pct / 100})`; bar.setAttribute("aria-valuenow", pct); if (pct >= 100) reveal();
   }
   function reveal() {
-    if (revealed) return; revealed = true; card.classList.add("is-revealed"); $(".scratch-guide")?.remove(); if (navigator.vibrate) navigator.vibrate(40);
+    if (revealed) return; revealed = true; card.classList.add("is-revealed"); $$(".scratch-guide,.scratch-glint").forEach(e => e.remove()); if (navigator.vibrate) navigator.vibrate(40); card.insertAdjacentHTML("beforeend", '<span class="reveal-burst" aria-hidden="true"></span><span class="reveal-burst b2" aria-hidden="true"></span>');
     canvas.style.transition = "opacity .8s cubic-bezier(.16,1,.3,1),transform .8s cubic-bezier(.16,1,.3,1)"; canvas.style.opacity = 0; canvas.style.transform = "scale(1.08)";
     setTimeout(() => canvas.remove(), 800); hint.remove(); btn.remove();
     barFill.style.transform = "scaleX(1)"; bar.setAttribute("aria-valuenow", 100); status.textContent = "Your Valima / Reception invitation is revealed.";
     if (!reduced) { const f = document.createElement("div"); f.className = "reveal-confetti"; f.setAttribute("aria-hidden", "true"); f.innerHTML = "<i></i>".repeat(8); root.appendChild(f); }
   }
-  canvas.addEventListener("pointerdown", e => { canvas.setPointerCapture(e.pointerId); $(".scratch-guide")?.remove(); scratch(e); });
+  canvas.addEventListener("pointerdown", e => { canvas.setPointerCapture(e.pointerId); $$(".scratch-guide,.scratch-glint").forEach(e => e.remove()); scratch(e); });
   canvas.addEventListener("pointermove", scratch);
   canvas.addEventListener("pointerup", check); canvas.addEventListener("pointercancel", check);
   btn.addEventListener("click", reveal);
@@ -1040,7 +1109,7 @@ openBtn.addEventListener("click", () => {
 })();
 
 /* floating hearts in the RSVP scene */
-$$(".particles", $("#rsvp")).forEach(box => { for (let i = 0; i < 10; i++) box.insertAdjacentHTML("beforeend", `<span class="float-heart" style="left:${6 + i * 9.5}%;--d:${(i % 5) * 1.3}s;--t:${9 + (i % 4) * 2}s;font-size:${10 + (i % 3) * 5}px">♥</span>`); });
+["#walima", "#rsvp"].forEach(id => $$(".particles", $(id)).forEach(box => { for (let i = 0; i < 10; i++) box.insertAdjacentHTML("beforeend", `<span class="float-heart" style="left:${6 + i * 9.5}%;--d:${(i % 5) * 1.3}s;--t:${9 + (i % 4) * 2}s;font-size:${10 + (i % 3) * 5}px">♥</span>`); }));
 
 /* ---- scroll-driven camera motion ---- */
 const prog = el => { const r = el.getBoundingClientRect(); return cl((innerHeight - r.top) / (innerHeight + r.height)); };
@@ -1056,7 +1125,7 @@ function frame() {
     ghosts.forEach(el => { const p = prog(el); el.firstElementChild.style.transform = `translate(${lerp(-5, 5, p)}%,${lerp(16, -16, p)}%) scale(${lerp(1.08, .92, p)})`; });
     rings.forEach(el => { const p = prog(el); el.firstElementChild.style.transform = `translateY(${lerp(12, -12, p)}%) scale(${lerp(.9, 1.1, p)}) rotate(${lerp(10, -10, p)}deg)`; });
     spins.forEach(el => { el.firstElementChild.style.transform = `rotate(${lerp(-30, 30, prog(el))}deg)`; });
-    const r = cel.getBoundingClientRect(), p = cl(-r.top / Math.max(1, r.height - innerHeight)), t = cl(p / .7), t8 = cl(p / .8);
+    const r = cel.getBoundingClientRect(), p = cl((innerHeight - r.top) / r.height), t = cl(p / .7), t8 = cl(p / .8);
     celAp.style.clipPath = `inset(${lerp(18, 0, t)}% ${lerp(20, 0, t)}% ${lerp(18, 0, t)}% ${lerp(20, 0, t)}% round ${lerp(180, 0, t)}px ${lerp(180, 0, t)}px 0 0)`;
     celImg.style.transform = `scale(${lerp(1.22, 1, p)})`;
     celH.style.transform = `translateY(${lerp(30, -16, t8)}px) scale(${lerp(.88, 1, t8)})`;
